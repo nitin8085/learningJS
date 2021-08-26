@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deep Clone</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		const original = {
+		  name: 'Fiesta',
+		  car: {
+		    color: 'blue',
+		  },
+		  date: new Date(),
+		  fun:function () {},
+		  fun2:new Function(),
+
+		}
+		const copied = Object.assign({}, original)
+
+/*		original.name = 'Focus'
+		original.car.color = 'yellow'
+
+		copied.name //Fiesta
+		copied.car.color //yellow*/
+
+		console.log('original : -');
+		console.log(original);
+		console.log('copied : - ');		
+		console.log(copied);
+	</script>
+</body>
+</html>
