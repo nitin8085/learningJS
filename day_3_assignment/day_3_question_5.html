@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Day 3 Assignment 5</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var somelist = Array(50001).join('1.1').split('.');//readVeryLongList();
+
+			alert(somelist);
+		var nextItem = function() {
+		   var item = somelist.pop();
+		   var promise	=	new Promise((resolve, reject) => {
+			   if (item) {
+			   		console.log(item);
+			       // process the list item...
+			       resolve();
+
+			   }
+
+		   })
+
+		   promise.then(()	=>	{
+			       nextItem();
+		   })
+
+		};
+		nextItem();
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Day 3 Assignment 4</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*function sleep(ms){
+		    return new Promise((resolve, reject)    => {
+		        setTimeout(function (){
+		            resolve('Hello ');
+		        }, ms);
+		    });
+		}
+
+		sleep(3*1000).then((result) => {
+    		console.log(result);
+		});*/
+		//Let's assume that we have a for loop that prints 0 to 10 at random intervals (0 to 6 seconds). We need to modify it using promises to print sequentially 0 to 10. For example, if 0 takes 6 seconds to print and 1 takes two seconds to print, then 1 should wait for 0 to print, and so on.
+
+		const myfun	=	(i, intervals) => new Promise(resolve => 			
+				setTimeout(function(i, intervals){
+					console.log(i);
+					return i;
+					//resolved();
+				}, (intervals * 1000)));
+
+
+		var intervals	=	Math.floor(Math.random() * (6 - 0)+0);
+		console.log(intervals);
+		for(i = 0; i < 10; i++){
+			myfun(i, intervals).then((i) => {
+				console.log();
+			});
+		}
+
+	</script>
+</body>
+</html>

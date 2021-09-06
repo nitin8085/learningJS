@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set Time out like function</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function customSetTimeOut (callback, ms) {
+		        var dt = new Date();
+		        var i = dt.getTime();
+		        var future = i + ms;
+		        while(Date.now() <= future) {
+		            //do nothing - blocking
+		        }
+		        return callback();
+		}
+
+		customSetTimeOut(function(){
+		  console.log("Timeout success");
+		},5000);
+	</script>
+</body>
+</html>

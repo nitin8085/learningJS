@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function validateString(input, callback) {
+
+		  setTimeout(function () {
+
+		    // input is said to be valid if it is a lowercase string
+
+		    if (typeof input === "string" && input === input.toLowerCase()) {
+
+		      return callback(null, true)
+
+		    }
+
+
+		    return callback(new Error('Invalid string'), null)
+
+		  }, 500)
+
+		}
+		var input_array	=	['first', 'Second', 'thiRd', 4, false, 'true'];
+		var output	=	[];
+
+		function myfun(){
+			validateString(input_array[input_array.length-1], function(a, b){
+				
+				//var srting 	=	input.toString();
+				console.log();
+				console.log(input_array);
+				
+				if (input_array.length > 0) {
+					if (b == null) {
+						output[input_array[input_array.length-1]]	=	false;						
+					}else{
+						output[input_array[input_array.length-1]]	=	b;
+					}
+					input_array.pop()
+					myfun();
+				}else{
+					console.log(output);
+				}			
+	/*			
+
+				output[input[0]]	=	b;
+				console.log(output);
+				var size =	(input.length - 1);
+				if (size >= 0) {
+					output[input[size]]	=	b;				
+				}*/
+			});
+
+		}
+
+		myfun();
+	</script>
+</body>
+</html>

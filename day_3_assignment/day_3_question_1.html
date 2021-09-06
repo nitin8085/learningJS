@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises </title>
+</head>
+<body>
+	<script type="text/javascript">
+		function testNum(number){
+			return new Promise((resolve, reject) => {
+				if (number < 10) {
+					resolve('less then 10 ');
+				}else{
+					reject('greather then 10');
+				}
+			});
+
+		}
+		testNum(1).then((message) => {
+			console.log('The value is '+message);
+		}).catch((message)	=>	{
+			console.log('Failed :  '+message);			
+		});
+
+	</script>
+</body>
+</html>

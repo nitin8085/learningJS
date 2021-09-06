@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr 	=	[1, 2, 3, 4, 5, 6, 7, 8];
+		//console.log(arr.push(9));
+		
+		// 1. push
+		Array.prototype.newPush	=	(data) => {
+			if (data) {
+				arr[arr.newLength()] = data;
+			}
+		}
+
+		// 2. pop
+		Array.prototype.newPop	=	()	=>	{
+			arr.length = Math.max(0, (arr.newLength() - 1) ); // prevent assigning negative values;
+		}
+
+		//3. shift
+		Array.prototype.newShift	=	()	=> {
+				var temp	=	[];
+				var firstElement = arr[0];
+				arr[0] = [];
+				for(i = 1; i < arr.newLength(); i++){
+					temp[i-1]	=	arr[i];
+				}
+				arr = temp;				
+				return firstElement;
+		}
+
+		//4. unshift
+		Array.prototype.newUnshift	=	function(){
+			//console.log(arguments.length); this argument will not work with arrow functions.
+			for (var i = 0; i < arguments.length; i++) {
+				var temp	=	[];				
+				for (var i = 0; i < arguments.length; i++) {
+					temp[i]	=	arguments[i];
+				}
+				for (var x = 0; x < arr.length; x++) {
+					temp	=	[...temp, arr[x]];
+				}
+				arr = temp;				
+				//console.log(arr);
+				return arr.length;
+			}
+		}
+
+		// 5.  length
+		Array.prototype.newLength	=	() => {
+			var length	=	0;
+			while(arr[length] !== undefined){
+				length++;
+			}
+			return length;
+		}
+
+		//6. splice
+		Array.prototype.newSplice =	(indexToRemove, numberToRemove)	=>	{
+			for (var i = indexToRemove; i < (indexToRemove+numberToRemove); i++) {
+				arr[i] = '';
+			}
+		}
+
+		Array.prototype.newIndexOf	=	(item, start = 0)	=>	{
+			for (var i = start; i < arr.length; i++) {
+				var result = -1;
+				if (arr[i]	== item) {
+					result = i;
+					break;
+				}
+			}
+			return result;
+		}
+
+/*		Array.prototype.newForEach	=	(function(currentValue, index, arr), thisValue){
+			
+		}*/
+
+		console.log('before : - '+arr);
+		//console.log(arr.newSplice(0,1));
+		arr.newPush(9);
+		arr.newPush(10);
+/*		arr.newPop();
+		arr.newShift();
+		arr.newShift();*/
+		//console.log(arr.newUnshift('5', 'item2', 'item3') );
+		console.log('ssssss');
+		console.log(arr.newIndexOf(5));
+		console.log('After :- '+arr);
+/*		var a = new Array();
+		var b = new String('ghgh');
+		console.log(b);*/
+
+/*		Array.prototype.newPush	=	(data) => {
+			if (data) {
+				arr[arr.newLength()] = data;
+				console.log(arr.newLength()+1);
+			}
+		}
+
+		Array.prototype.newLength	=	() => {
+			var length	=	0;
+			while(arr[length] !== undefined){
+				length++;
+			}
+			return length;
+		}*/
+	</script>
+</body>
+</html>

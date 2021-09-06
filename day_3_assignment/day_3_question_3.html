@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Day 3 Assignment 3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const sleep	=	(ms) => new Promise(resolve => setTimeout(resolve, ms));
+		sleep(1000).then(() => {
+			console.log('printing after 1 second');
+			return sleep(1000);
+		}).then(()=>{
+			console.log('this runs after 2 seconds without blocking the call stack');
+		})
+	</script>
+</body>
+</html>
